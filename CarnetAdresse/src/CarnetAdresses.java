@@ -23,10 +23,15 @@ public class CarnetAdresses {
 		pers.setPrenom(prenom);
 		pers.setNumero(numero);
 		
+		
 		//System.out.println(pers.getNom());
 		//System.out.println(pers.getPrenom());
 		//System.out.println(pers.getNumero());
 
+	}
+	
+	public void ajouterPersonneCarnet(Personne personne) {
+		
 	}
 
 }
