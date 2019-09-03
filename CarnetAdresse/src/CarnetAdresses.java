@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class CarnetAdresses {
 	
 	private Personne[] carnet;
+	private int nbPersonne;
 	
 	public CarnetAdresses() {
 		
@@ -22,15 +23,26 @@ public class CarnetAdresses {
 		pers.setNom(nom);
 		pers.setPrenom(prenom);
 		pers.setNumero(numero);
-		
-		
-		//System.out.println(pers.getNom());
-		//System.out.println(pers.getPrenom());
-		//System.out.println(pers.getNumero());
 
 	}
 	
+	public void afficherCarnet() {
+		for (int i=0; i<this.carnet.length;i++)
+		{
+			System.out.println("Index "+i+": ");
+			System.out.println(carnet[i].getNom());
+			System.out.println(carnet[i].getPrenom());
+			System.out.println(carnet[i].getNumero());
+		}
+	}
 	public void ajouterPersonneCarnet(Personne personne) {
+		Personne[] newCarnet = new Personne[this.carnet.length + 1] ;
+		for (int i = 0; i < this.carnet.length; i ++) {
+			newCarnet[i] = carnet[i];
+		}
+		newCarnet[this.carnet.length] = personne;
+	}
+	public void supprimerPersonneCarnet(int index) {
 		
 	}
 
