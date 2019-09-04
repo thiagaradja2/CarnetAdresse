@@ -1,3 +1,5 @@
+import java.io.File;
+import java.io.FileWriter;
 import java.util.Scanner;
 
 public class CarnetAdresses {
@@ -82,7 +84,6 @@ public class CarnetAdresses {
 	public void trierCarnet() {
 		
 		Personne temp;
-		System.out.println("Strings in sorted order:");
 		for (int j = 0; j < this.nbPersonne; j++) {
 	   	   for (int i = j + 1; i < this.nbPersonne; i++) {
 			// comparing adjacent strings
@@ -114,6 +115,23 @@ public class CarnetAdresses {
 	public void rechercherPersonne() {
 		
 		
+		
+	}
+	
+	public void enregisterCarnet() {
+		
+		try{
+			File ff=new File("CarnetSauvegarde.txt"); // définir l'arborescence
+			ff.createNewFile();
+			FileWriter ffw=new FileWriter(ff);
+			ffw.write(" ****** ");  // écrire une ligne dans le fichier resultat.txt
+			ffw.write("\n"); // forcer le passage à la ligne
+			ffw.close(); // fermer le fichier à la fin des traitements
+			System.out.println("succés");
+			} 
+		catch (Exception e) {
+			System.out.println("erreur");
+		}
 		
 	}
 

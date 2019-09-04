@@ -19,7 +19,8 @@ public class Main {
 		System.out.println(" 3- Supprimer une personne");
 		System.out.println(" 4- Rechercher une personne ");
 		System.out.println(" 5- Trier le tableau ");
-		System.out.println(" 6- Quitter le programme  ");
+		System.out.println(" 6- Enregistrer le carnet ");
+		
 		System.out.println("================================");
 		
 		choixMenu();
@@ -50,7 +51,7 @@ public class Main {
 				carnet.trierCarnet();
 				break;
 			case 6 : 
-				
+				carnet.enregisterCarnet();
 				break;
 			default : 
 				afficherMenu();
