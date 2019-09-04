@@ -52,4 +52,11 @@ public class Personne {
 		this.adresse = adresse;
 	}
 	
+	public void afficherPersonne() {
+		System.out.println("Nom :"+ this.getNom());
+		System.out.println("Prenom :"+ this.getPrenom());
+		System.out.println("Numero :"+ this.getNumero());
+		
+
+	}
 }

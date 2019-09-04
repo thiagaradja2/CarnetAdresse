@@ -33,9 +33,8 @@ public class CarnetAdresses {
 			for (int i=0; i<this.nbPersonne;i++)
 			{
 				System.out.println("Index "+i+": ");
-				System.out.println("Nom : "+this.carnet[i].getNom());
-				System.out.println("Prenom : "+this.carnet[i].getPrenom());
-				System.out.println("Numero : "+this.carnet[i].getNumero());
+				this.carnet[i].afficherPersonne();
+			
 				System.out.println(" ----------------------- ");
 				System.out.println("  ");
 			}
@@ -45,6 +44,8 @@ public class CarnetAdresses {
 		}
 		
 	}
+	
+	
 	public void ajouterPersonneCarnet(Personne personne) {
 		Personne[] newCarnet = new Personne[this.nbPersonne + 1] ;
 		for (int i = 0; i < this.nbPersonne; i ++) {
@@ -55,10 +56,9 @@ public class CarnetAdresses {
 		this.nbPersonne++;
 	}
 	
+	
 	public void supprimerPersonneCarnet(int index) {
 		
-		//System.out.println("nbpers "+nbPersonne);
-		//System.out.println("index "+index );
 		if(this.nbPersonne <  index ||  index < 0) {
 			System.out.println("Impossible de supprimer cette personne");
 		}
@@ -76,18 +76,44 @@ public class CarnetAdresses {
 			this.nbPersonne--;
 		}
 		
-		
-		
-		
-		
 	}
 	
 	
 	public void trierCarnet() {
 		
+		Personne temp;
+		System.out.println("Strings in sorted order:");
+		for (int j = 0; j < this.nbPersonne; j++) {
+	   	   for (int i = j + 1; i < this.nbPersonne; i++) {
+			// comparing adjacent strings
+	   		if(carnet[i].getNom()==carnet[j].getNom()) {
+	   			if(carnet[i].getPrenom()==carnet[j].getPrenom()) {
+	   				if (carnet[i].getNumero().compareTo(carnet[j].getNumero()) < 0) {
+						temp = carnet[j];
+						this.carnet[j] = this.carnet[i];
+						this.carnet[i] = temp;
+					}
+	   			}
+	   			else if(carnet[i].getPrenom().compareTo(carnet[j].getPrenom()) < 0) {
+					temp = carnet[j];
+					this.carnet[j] = this.carnet[i];
+					this.carnet[i] = temp;
+				}
+	   		}
+	   		else if(carnet[i].getNom().compareTo(carnet[j].getNom()) < 0) {
+				temp = carnet[j];
+				this.carnet[j] = this.carnet[i];
+				this.carnet[i] = temp;
+			}
+		   }
+		  
+		}
+		
 	}
 	
 	public void rechercherPersonne() {
+		
+		
 		
 	}
 
