@@ -1,5 +1,8 @@
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class CarnetAdresses {
@@ -119,19 +122,49 @@ public class CarnetAdresses {
 	}
 	
 	public void enregisterCarnet() {
-		
+		File ff=new File("CarnetSauvegarde.txt"); // définir l'arborescence
 		try{
-			File ff=new File("CarnetSauvegarde.txt"); // définir l'arborescence
 			ff.createNewFile();
-			FileWriter ffw=new FileWriter(ff);
-			ffw.write(" ****** ");  // écrire une ligne dans le fichier resultat.txt
-			ffw.write("\n"); // forcer le passage à la ligne
-			ffw.close(); // fermer le fichier à la fin des traitements
-			System.out.println("succés");
-			} 
-		catch (Exception e) {
-			System.out.println("erreur");
+			System.out.println("succés New File");
+			try {
+				FileWriter ffw=new FileWriter(ff);
+				ffw.write(this.nbPersonne + " \n");
+				for(int i = 0; i< this.nbPersonne;i++) {
+					ffw.write(this.carnet[i].toString());// on écrit une personne dans le fichier de sauvergarde
+					ffw.write("\n");
+				}
+			
+				ffw.flush();
+				ffw.close(); // fermer le fichier à la fin des traitements
+				System.out.println("succés Write");
+			}catch(Exception e){
+				System.out.println("Echec Write");
+			}
+			
+			}catch (Exception e) {
+			System.out.println("erreur New file");
 		}
+		
+	}
+	
+	public void chargerCarnet() {
+		
+		try {
+			FileReader reader = new FileReader("CarnetSauvegarde.txt");
+			Scanner sc = new Scanner(reader);
+			this.nbPersonne = sc.nextInt();
+			this.carnet = new Personne[this.nbPersonne];
+			int indexPersonne = 0;
+			
+			while (sc.hasNext()) {
+				this.carnet[indexPersonne]= new Personne (sc.next(),sc.next(),sc.next());
+				indexPersonne++;
+			}
+			System.out.println("succés");
+		}catch (Exception e) {
+			System.err.format("IOException: %s%n", e);
+		}
+		
 		
 	}
 

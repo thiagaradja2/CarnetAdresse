@@ -7,8 +7,15 @@ public class Personne {
 	private String numero;
 	private String adresse;
 	
-	public Personne() {
+	public Personne(String nom, String prenom, String numero) {
+		this.nom = nom;
+		this.prenom = prenom;
+		this.numero = numero;
 		
+	}
+
+	public Personne() {
+
 		
 	}
 
@@ -59,4 +66,10 @@ public class Personne {
 		
 
 	}
+	
+	public String toString() {
+	
+		return  this.getNom()+" "+this.getPrenom()+" "+this.getNumero();
+	}
+	
 }

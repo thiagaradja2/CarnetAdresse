@@ -20,6 +20,7 @@ public class Main {
 		System.out.println(" 4- Rechercher une personne ");
 		System.out.println(" 5- Trier le tableau ");
 		System.out.println(" 6- Enregistrer le carnet ");
+		System.out.println(" 7- Charger le carnet ");
 		
 		System.out.println("================================");
 		
@@ -30,7 +31,7 @@ public class Main {
 	public static void choixMenu() {
 		Scanner scan = new Scanner(System.in);
 		int choix = scan.nextInt();
-		while(choix!=6) {
+		while(choix!=8) {
 				switch(choix) {
 			case 1 : 
 				carnet.afficherCarnet();
@@ -52,6 +53,9 @@ public class Main {
 				break;
 			case 6 : 
 				carnet.enregisterCarnet();
+				break;
+			case 7 : 
+				carnet.chargerCarnet();
 				break;
 			default : 
 				afficherMenu();
