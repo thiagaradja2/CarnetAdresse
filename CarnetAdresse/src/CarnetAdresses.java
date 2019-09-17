@@ -115,10 +115,25 @@ public class CarnetAdresses {
 		
 	}
 	
-	public void rechercherPersonne() {
+	public void rechercherPersonne(String nom) {
+		int milieu = 0;
+		int haut, bas;
+		haut = this.nbPersonne-1;
+		bas =1;
+		while(bas < haut) {
+			milieu = (haut+bas)/2;
+			if(nom.compareTo(this.carnet[milieu].getNom()) <= 0) {
+				haut = milieu;
+			}else if(nom.compareTo(this.carnet[milieu].getNom()) > 0){
+				bas = bas++;
+			}
+		}
 		
-		
-		
+		int i = milieu;
+		while(i == this.nbPersonne -1 || this.carnet[milieu].getNom().compareTo(this.carnet[i].getNom()) == 0) {
+			this.carnet[i].afficherPersonne();
+			i ++;
+		}
 	}
 	
 	public void enregisterCarnet() {

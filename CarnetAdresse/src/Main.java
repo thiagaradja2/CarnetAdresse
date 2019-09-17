@@ -46,7 +46,9 @@ public class Main {
 				carnet.supprimerPersonneCarnet(indexASuppr);
 				break;
 			case 4 : 
-				carnet.rechercherPersonne();
+				System.out.println("Saisir le nom de la personne : ");
+				String nom = scan.next();
+				carnet.rechercherPersonne(nom);
 				break;
 			case 5 : 
 				carnet.trierCarnet();
