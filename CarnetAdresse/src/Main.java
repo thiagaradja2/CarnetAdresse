@@ -46,9 +46,13 @@ public class Main {
 				carnet.supprimerPersonneCarnet(indexASuppr);
 				break;
 			case 4 : 
-				System.out.println("Saisir le nom de la personne : ");
-				String nom = scan.next();
-				carnet.rechercherPersonne(nom);
+				if(carnet.getNbPersonne() > 0) {
+					System.out.println("Saisir le nom de la personne : ");
+					String nom = scan.next();
+					carnet.rechercherPersonne(nom);
+				}else {
+					System.out.println("Rechercher impossible, le carnet est vide");
+				}
 				break;
 			case 5 : 
 				carnet.trierCarnet();

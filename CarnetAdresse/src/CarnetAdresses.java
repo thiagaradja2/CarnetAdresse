@@ -14,6 +14,13 @@ public class CarnetAdresses {
 		
 	}
 	
+	public Personne[] getCarnet() {
+		return carnet;
+	}
+	
+	public int getNbPersonne() {
+		return nbPersonne;
+	}
 	
 	public void saisirPersonne() {
 		Scanner sc =  new Scanner(System.in);
@@ -120,20 +127,20 @@ public class CarnetAdresses {
 		int haut, bas;
 		haut = this.nbPersonne-1;
 		bas =1;
-		while(bas < haut) {
-			milieu = (haut+bas)/2;
-			if(nom.compareTo(this.carnet[milieu].getNom()) <= 0) {
-				haut = milieu;
-			}else if(nom.compareTo(this.carnet[milieu].getNom()) > 0){
-				bas = bas++;
+			while(bas < haut) {
+				milieu = (haut+bas)/2;
+				if(nom.compareTo(this.carnet[milieu].getNom()) <= 0) {
+					haut = milieu;
+				}else if(nom.compareTo(this.carnet[milieu].getNom()) > 0){
+					bas = bas++;
+				}
 			}
-		}
-		
-		int i = milieu;
-		while(i == this.nbPersonne -1 || this.carnet[milieu].getNom().compareTo(this.carnet[i].getNom()) == 0) {
-			this.carnet[i].afficherPersonne();
-			i ++;
-		}
+			
+			int i = milieu;
+			while(i == this.nbPersonne -1 || this.carnet[milieu].getNom().compareTo(this.carnet[i].getNom()) == 0) {
+				this.carnet[i].afficherPersonne();
+				i ++;
+			}
 	}
 	
 	public void enregisterCarnet() {
